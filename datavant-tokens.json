@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "name": "Datavant Design System",
+    "version": "1.2.0",
+    "generatedFrom": "Datavant Figma DS",
+    "framework": "Mantine",
+    "fontFamily": "Geist",
+    "baseSize": "16px",
+    "lastUpdated": "April 2026"
+  },
+
+  "colors": {
+    "primitives": {
+      "gray": {
+        "50":  "#F9F9FB",
+        "100": "#F2F3F8",
+        "200": "#E4E6EB",
+        "300": "#C7CCD4",
+        "400": "#ACB3BD",
+        "500": "#8C94A1",
+        "600": "#606A78",
+        "700": "#383D45",
+        "800": "#1D2024",
+        "900": "#020202"
+      },
+      "blue": {
+        "50":  "#F4F4FA",
+        "100": "#E7EAFE",
+        "200": "#D6DAFF",
+        "300": "#B0BAF5",
+        "400": "#7C8CEF",
+        "500": "#475FF2",
+        "600": "#2945F0",
+        "700": "#102CD5",
+        "800": "#142592",
+        "900": "#091877"
+      },
+      "violet": {
+        "50":  "#F5F0F7",
+        "100": "#ECDFF5",
+        "200": "#DBBFEC",
+        "300": "#C698DF",
+        "400": "#AE6DD1",
+        "500": "#A350CC",
+        "600": "#932BC4",
+        "700": "#730E9C",
+        "800": "#5A1773",
+        "900": "#33133F"
+      },
+      "red": {
+        "50":  "#FFEFEF",
+        "100": "#FFDDDD",
+        "200": "#FFC1C1",
+        "300": "#FF9595",
+        "400": "#FF5959",
+        "500": "#FF1C1C",
+        "600": "#DE1212",
+        "700": "#BD0909",
+        "800": "#8F0000",
+        "900": "#4F0808"
+      },
+      "yellow": {
+        "50":  "#FDFAEB",
+        "100": "#FCF4CA",
+        "200": "#FFEA8C",
+        "300": "#FFE045",
+        "400": "#FFD12B",
+        "500": "#F7B500",
+        "600": "#D19200",
+        "700": "#A16B00",
+        "800": "#855000",
+        "900": "#5C3900"
+      },
+      "green": {
+        "50":  "#F0FAF2",
+        "100": "#D0F7DD",
+        "200": "#9EF0BC",
+        "300": "#65E59F",
+        "400": "#38C97F",
+        "500": "#0DA65C",
+        "600": "#008545",
+        "700": "#046338",
+        "800": "#064D2E",
+        "900": "#053922"
+      },
+      "emerald": {
+        "50":  "#F6FAF0",
+        "100": "#E2F7D0",
+        "200": "#B7E593",
+        "300": "#80D154",
+        "400": "#54B827",
+        "500": "#399C13",
+        "600": "#217300",
+        "700": "#165900",
+        "800": "#084600",
+        "900": "#0E3900"
+      },
+      "cyan": {
+        "50":  "#F0FFFE",
+        "100": "#D6FFFF",
+        "200": "#A3FBF9",
+        "300": "#68F8F7",
+        "400": "#14E7E8",
+        "500": "#0CCCCF",
+        "600": "#0AA5B0",
+        "700": "#11818A",
+        "800": "#0C616B",
+        "900": "#0F3D4C"
+      },
+      "lightBlue": {
+        "50":  "#F4F7FA",
+        "100": "#E7F4FE",
+        "200": "#C4E8FF",
+        "300": "#8FD4FF",
+        "400": "#40B9FF",
+        "500": "#1C9BE5",
+        "600": "#007BC7",
+        "700": "#0065A3",
+        "800": "#005082",
+        "900": "#003557"
+      },
+      "orange": {
+        "50":  "#FFF9F2",
+        "100": "#FFEAD1",
+        "200": "#FFD19C",
+        "300": "#FFB463",
+        "400": "#FF8B33",
+        "500": "#FF6608",
+        "600": "#E55400",
+        "700": "#C44800",
+        "800": "#9C3200",
+        "900": "#6E2200"
+      },
+      "pink": {
+        "50":  "#FEF1F6",
+        "100": "#FEE5EF",
+        "200": "#FFCBE1",
+        "300": "#FFA1C6",
+        "400": "#FF5E99",
+        "500": "#F53676",
+        "600": "#E8185A",
+        "700": "#C90641",
+        "800": "#9C0832",
+        "900": "#6E0A26"
+      }
+    },
+
+    "semantic": {
+      "primary": {
+        "default": "#2945F0",
+        "darker": "#102CD5",
+        "description": "CTAs, accent color, borders"
+      },
+      "error": {
+        "background": "#FFEFEF",
+        "text": "#CC0000"
+      },
+      "warning": {
+        "background": "#FDFAED",
+        "text": "#735F08"
+      },
+      "success": {
+        "background": "#EEFBF2",
+        "text": "#265949"
+      },
+      "info": {
+        "bg1": "#F2EAF5",
+        "text1": "#773A92",
+        "bg2": "#ECEEFE",
+        "text2": "#091877"
+      },
+      "neutral": {
+        "background": "#F0EFEA",
+        "text": "#020202"
+      },
+      "background": {
+        "primary": "#FFFFFF",
+        "gradient": "linear-gradient(45deg, #F3FFFF, #E9EBFB, #EEECE7)"
+      },
+      "text": {
+        "primary": "#020202",
+        "secondary": "#6D7888",
+        "tertiary": "#B0B6BF"
+      },
+      "fill": {
+        "primaryOpacity100": "#FFFFFF",
+        "primaryOpacity75": "rgba(255,255,255,0.75)",
+        "darkOpacity100": "#020202",
+        "darkOpacity75": "rgba(2,2,2,0.75)"
+      },
+      "table": {
+        "rowHighlight": "#F9F9FB",
+        "header": "#F2F3F8"
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamily": "Geist, system-ui, sans-serif",
+    "baseSize": "16px",
+    "allowedWeights": [400, 500],
+    "heading": {
+      "scale": "1.250 (Major Third)",
+      "regular": {
+        "4xl": { "fontSize": "32px", "lineHeight": "40px", "fontSizeRem": "2rem",      "lineHeightRem": "2.5rem",   "fontWeight": 400 },
+        "3xl": { "fontSize": "28px", "lineHeight": "32px", "fontSizeRem": "1.75rem",   "lineHeightRem": "2rem",     "fontWeight": 400 },
+        "2xl": { "fontSize": "20px", "lineHeight": "28px", "fontSizeRem": "1.25rem",   "lineHeightRem": "1.75rem",  "fontWeight": 400 },
+        "xl":  { "fontSize": "18px", "lineHeight": "24px", "fontSizeRem": "1.125rem",  "lineHeightRem": "1.5rem",   "fontWeight": 400 },
+        "md":  { "fontSize": "14px", "lineHeight": "18px", "fontSizeRem": "0.875rem",  "lineHeightRem": "1.125rem", "fontWeight": 400 },
+        "sm":  { "fontSize": "12px", "lineHeight": "16px", "fontSizeRem": "0.75rem",   "lineHeightRem": "1rem",     "fontWeight": 400 },
+        "xs":  { "fontSize": "10px", "lineHeight": "14px", "fontSizeRem": "0.625rem",  "lineHeightRem": "0.875rem", "fontWeight": 400 }
+      },
+      "medium": {
+        "4xl": { "fontSize": "32px", "lineHeight": "40px", "fontSizeRem": "2rem",      "lineHeightRem": "2.5rem",   "fontWeight": 500 },
+        "3xl": { "fontSize": "28px", "lineHeight": "32px", "fontSizeRem": "1.75rem",   "lineHeightRem": "2rem",     "fontWeight": 500 },
+        "2xl": { "fontSize": "20px", "lineHeight": "28px", "fontSizeRem": "1.25rem",   "lineHeightRem": "1.75rem",  "fontWeight": 500 },
+        "xl":  { "fontSize": "18px", "lineHeight": "24px", "fontSizeRem": "1.125rem",  "lineHeightRem": "1.5rem",   "fontWeight": 500 },
+        "md":  { "fontSize": "14px", "lineHeight": "18px", "fontSizeRem": "0.875rem",  "lineHeightRem": "1.125rem", "fontWeight": 500 },
+        "sm":  { "fontSize": "12px", "lineHeight": "16px", "fontSizeRem": "0.75rem",   "lineHeightRem": "1rem",     "fontWeight": 500 },
+        "xs":  { "fontSize": "10px", "lineHeight": "14px", "fontSizeRem": "0.625rem",  "lineHeightRem": "0.875rem", "fontWeight": 500 }
+      }
+    },
+    "body": {
+      "scale": "1.125 (Major Second)",
+      "regular": {
+        "xl": { "fontSize": "18px", "lineHeight": "28px", "fontSizeRem": "1.125rem", "lineHeightRem": "1.75rem",  "fontWeight": 400 },
+        "lg": { "fontSize": "16px", "lineHeight": "24px", "fontSizeRem": "1rem",     "lineHeightRem": "1.5rem",   "fontWeight": 400 },
+        "md": { "fontSize": "14px", "lineHeight": "20px", "fontSizeRem": "0.875rem", "lineHeightRem": "1.25rem",  "fontWeight": 400 },
+        "sm": { "fontSize": "12px", "lineHeight": "16px", "fontSizeRem": "0.75rem",  "lineHeightRem": "1rem",     "fontWeight": 400 },
+        "xs": { "fontSize": "10px", "lineHeight": "14px", "fontSizeRem": "0.625rem", "lineHeightRem": "0.875rem", "fontWeight": 400 }
+      },
+      "medium": {
+        "xl": { "fontSize": "18px", "lineHeight": "28px", "fontSizeRem": "1.125rem", "lineHeightRem": "1.75rem",  "fontWeight": 500 },
+        "lg": { "fontSize": "16px", "lineHeight": "24px", "fontSizeRem": "1rem",     "lineHeightRem": "1.5rem",   "fontWeight": 500 },
+        "md": { "fontSize": "14px", "lineHeight": "20px", "fontSizeRem": "0.875rem", "lineHeightRem": "1.25rem",  "fontWeight": 500 },
+        "sm": { "fontSize": "12px", "lineHeight": "16px", "fontSizeRem": "0.75rem",  "lineHeightRem": "1rem",     "fontWeight": 500 },
+        "xs": { "fontSize": "10px", "lineHeight": "14px", "fontSizeRem": "0.625rem", "lineHeightRem": "0.875rem", "fontWeight": 500 }
+      },
+      "uppercase": {
+        "xl": { "fontSize": "18px", "lineHeight": "28px", "fontSizeRem": "1.125rem", "lineHeightRem": "1.75rem",  "fontWeight": 500, "textTransform": "uppercase" },
+        "lg": { "fontSize": "16px", "lineHeight": "24px", "fontSizeRem": "1rem",     "lineHeightRem": "1.5rem",   "fontWeight": 500, "textTransform": "uppercase" },
+        "md": { "fontSize": "14px", "lineHeight": "20px", "fontSizeRem": "0.875rem", "lineHeightRem": "1.25rem",  "fontWeight": 500, "textTransform": "uppercase" },
+        "sm": { "fontSize": "12px", "lineHeight": "16px", "fontSizeRem": "0.75rem",  "lineHeightRem": "1rem",     "fontWeight": 500, "textTransform": "uppercase" },
+        "xs": { "fontSize": "10px", "lineHeight": "14px", "fontSizeRem": "0.625rem", "lineHeightRem": "0.875rem", "fontWeight": 500, "textTransform": "uppercase" }
+      }
+    }
+  },
+
+  "spacing": {
+    "base": "16px",
+    "tokens": {
+      "none": "0px",
+      "xxs":  "2px",
+      "xs":   "4px",
+      "sm":   "8px",
+      "md":   "12px",
+      "lg":   "16px",
+      "xl":   "24px",
+      "xxl":  "32px"
+    }
+  },
+
+  "radius": {
+    "base": "16px",
+    "note": "Radius scale mirrors the spacing scale intentionally for system coherence.",
+    "tokens": {
+      "none": "0px",
+      "xs":   "2px",
+      "sm":   "4px",
+      "md":   "8px",
+      "lg":   "16px",
+      "xl":   "24px",
+      "xxl":  "32px"
+    },
+    "usage": {
+      "radius-sm":  "Badges, tags, chips — small interactive elements",
+      "radius-md":  "Inputs, buttons, dropdowns — default interactive components",
+      "radius-lg":  "Cards, panels, modals — surface-level containers",
+      "radius-xl":  "Pill shapes, full-radius containers",
+      "radius-xxl": "Full-radius large containers"
+    }
+  },
+
+  "shadows": {
+    "xs": {
+      "layers": 2,
+      "value": "0px 1px 3px 0px rgba(0,0,0,0.05), 0px 1px 2px 0px rgba(0,0,0,0.1)"
+    },
+    "sm": {
+      "layers": 3,
+      "value": "0px 1px 3px 0px rgba(0,0,0,0.05), 0px 10px 15px -5px rgba(0,0,0,0.05), 0px 7px 7px -5px rgba(0,0,0,0.04)"
+    },
+    "md": {
+      "layers": 3,
+      "value": "0px 1px 3px 0px rgba(0,0,0,0.05), 0px 20px 25px -5px rgba(0,0,0,0.05), 0px 10px 10px -5px rgba(0,0,0,0.04)"
+    },
+    "lg": {
+      "layers": 3,
+      "value": "0px 1px 3px 0px rgba(0,0,0,0.05), 0px 28px 23px -7px rgba(0,0,0,0.05), 0px 12px 12px -7px rgba(0,0,0,0.04)"
+    },
+    "xl": {
+      "layers": 3,
+      "value": "0px 1px 3px 0px rgba(0,0,0,0.05), 0px 36px 28px -7px rgba(0,0,0,0.05), 0px 17px 17px -7px rgba(0,0,0,0.04)"
+    }
+  },
+
+  "iconography": {
+    "primary": {
+      "library": "Tabler Icons",
+      "version": "2.20.0",
+      "source": "https://tabler-icons.io",
+      "license": "Open source, free, no attribution required, commercial use allowed",
+      "stroke": "Normal",
+      "color": "currentColor",
+      "layout": {
+        "direction": "Horizontal",
+        "alignment": "Middle center",
+        "verticalResizing": "Hug",
+        "horizontalResizing": "Hug"
+      },
+      "sizes": {
+        "base": "16px",
+        "tokens": {
+          "xs": { "size": "12px", "rem": "0.75rem", "usage": "Dense UI, inline labels, table cells" },
+          "sm": { "size": "16px", "rem": "1rem",    "usage": "Default inline and text-adjacent usage" },
+          "md": { "size": "20px", "rem": "1.25rem", "usage": "Standalone icon buttons, form inputs" },
+          "lg": { "size": "24px", "rem": "1.5rem",  "usage": "Navigation, prominent actions" },
+          "xl": { "size": "32px", "rem": "2rem",    "usage": "Empty states, feature callouts, marketing UI" }
+        }
+      },
+      "categories": [
+        "Animals", "Arrows", "Brand", "Buildings", "Charts", "Communication",
+        "Computers", "Currencies", "Database", "Design", "Devices", "Document",
+        "E-commerce", "Electrical", "Food", "Gender", "Gestures", "Health",
+        "Laundry", "Letters", "Logic", "Map", "Math", "Media", "Misc",
+        "Mood", "Nature", "Numbers", "Photography", "Shapes", "Sport",
+        "Symbols", "System", "Text", "Vehicles", "Version Control", "Weather", "Zodiac"
+      ]
+    },
+    "supplementary": {
+      "flags": {
+        "name": "Flat Flags with Variants",
+        "author": "Ferdi Çıldız",
+        "count": "259 vector flags",
+        "source": "https://www.figma.com/community/file/981185634033365228",
+        "usage": "Country and region flag components only"
+      },
+      "socialMedia": {
+        "name": "Social Media Icons",
+        "author": "Mads Egmose",
+        "source": "https://www.figma.com/community/file/839558611085349133/social-media-icons",
+        "usage": "Social platform logos and links only"
+      }
+    }
+  }
+}
