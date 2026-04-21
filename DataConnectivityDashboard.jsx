@@ -906,7 +906,7 @@ function Sidebar({ colorScheme, setColorScheme, darkMode }) {
     <aside className={`dvd-sb${isLight ? ' is-light' : ''}`}>
       <div className="dvd-sb-logo">
         <img
-          src={isLight ? '/Color=Black, Logo=Default.svg' : '/Color=White, Logo=Default.svg'}
+          src={isLight ? '/datavant-ds/logo-black.svg' : '/datavant-ds/logo-white.svg'}
           alt="Datavant"
           style={{ height: '20px', width: 'auto', display: 'block' }}
         />
