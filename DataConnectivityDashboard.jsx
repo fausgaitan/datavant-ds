@@ -1218,8 +1218,8 @@ function MatchRateDistributionCard() {
   const textPrimary   = darkMode ? D.textPrimary   : C.textPrimary;
   const textSecondary = darkMode ? D.textSecondary : C.textSecondary;
   const textTertiary  = darkMode ? D.textTertiary  : C.textTertiary;
-  const trackColor    = darkMode ? D.border        : C.gray200;
-  const connectorColor = darkMode ? D.border       : C.gray300;
+  const trackColor     = darkMode ? D.bg            : C.bg;
+  const connectorColor = darkMode ? D.border        : C.gray300;
 
   const colors = [
     `rgba(${rgb},1.0)`,
@@ -1230,7 +1230,7 @@ function MatchRateDistributionCard() {
   // SVG donut geometry
   const r = 56, strokeW = 18, vCx = 80, vCy = 80;
   const circ = 2 * Math.PI * r;
-  const gap  = 5;
+  const gap  = 20;
   const effectiveArc = circ - MATCH_DIST_SEGMENTS.length * gap;
 
   let cumStart = 0;
@@ -1261,7 +1261,7 @@ function MatchRateDistributionCard() {
                 strokeWidth={strokeW}
                 strokeDasharray={`${arc.arcLen} ${circ}`}
                 strokeDashoffset={-arc.start}
-                strokeLinecap="butt"
+                strokeLinecap="round"
                 style={{ transform: 'rotate(-90deg)', transformOrigin: `${vCx}px ${vCy}px` }}
               />
             ))}
