@@ -1285,7 +1285,7 @@ function MatchRateDistributionCard() {
                 strokeWidth={strokeW}
                 strokeDasharray={`${arc.arcLen} ${circ}`}
                 strokeDashoffset={-arc.start}
-                strokeLinecap="round"
+                strokeLinecap="butt"
                 style={{ transform: 'rotate(-90deg)', transformOrigin: `${vCx}px ${vCy}px` }}
               />
             ))}
