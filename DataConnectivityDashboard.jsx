@@ -34,7 +34,7 @@ const C = {
   // semantic.text
   textPrimary:   '#020202',   // gray.900
   textSecondary: '#6D7888',   // semantic.text.secondary
-  textTertiary:  '#B0B6BF',   // semantic.text.tertiary
+  textTertiary:  '#8C94A1',   // gray.500 — slightly darker than semantic tertiary for readability
   // backgrounds
   bg:            '#FFFFFF',   // semantic.background.primary
   pageBg:        '#F9F9FB',   // gray.50
