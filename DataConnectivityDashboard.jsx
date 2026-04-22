@@ -56,13 +56,16 @@ const C = {
   infoBg:        '#ECEEFE',   // semantic.info.bg2
   infoText:      '#091877',   // semantic.info.text2
   neutralBg:     '#F0EFEA',   // semantic.neutral.background
-  neutralText:   '#606A78',   // gray.600
+  neutralText:   '#020202',   // semantic.neutral.text (gray.900)
   // data viz
   green600:      '#008545',   // green.600 — complete healthy bars
 };
 
 // Flat panel border — opacity reduced to 0.08 (vs 0.15 elevated style)
 const PANEL_BORDER = '0.5px solid rgba(2,2,2,0.08)';
+
+// shadow-sm from datavant-tokens.json
+const SHADOW_SM = '0px 1px 3px 0px rgba(0,0,0,0.05), 0px 10px 15px -5px rgba(0,0,0,0.05), 0px 7px 7px -5px rgba(0,0,0,0.04)';
 
 // Dark-mode surface tokens
 const D = {
@@ -79,8 +82,8 @@ const D = {
 
 const ACCENT_MAP = {
   blue:   { hex: '#2945F0', rgb: '41,69,240'   },
-  violet: { hex: '#7C3AED', rgb: '124,58,237'  },
-  indigo: { hex: '#4338CA', rgb: '67,56,202'   },
+  violet: { hex: '#932BC4', rgb: '147,43,196'  },  // violet.600
+  indigo: { hex: '#142592', rgb: '20,37,146'   },  // blue.800
   teal:   { hex: '#0D9488', rgb: '13,148,136'  },
   slate:  { hex: '#475569', rgb: '71,85,105'   },
 };
@@ -233,7 +236,7 @@ const CSS = `
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
   }
 
   /* ── Sidebar (220px, dark) ───────────────────────────────────────────────── */
@@ -252,20 +255,20 @@ const CSS = `
     display: flex;
     align-items: center;
     height: 55px;
-    padding: 0 20px;
+    padding: 0 24px;
     flex-shrink: 0;
   }
   .dvd-hr { height: 1px; background: rgba(255,255,255,0.08); }
   .dvd-nav {
     flex: 1;
-    padding: 38px 12px 16px;
+    padding: 32px 12px 16px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 0;
   }
-  /* 20px between nav sections, no gap between items within a section */
-  .dvd-nav > div + div { margin-top: 20px; }
+  /* spacing-xl (24px) between nav sections */
+  .dvd-nav > div + div { margin-top: 24px; }
   .dvd-nav-group-label {
     font-size: 10px;
     line-height: 14px;
@@ -275,7 +278,7 @@ const CSS = `
     color: ${C.gray500};
     font-family: 'Geist', system-ui, sans-serif;
     padding: 0 8px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .dvd-nav-items {
     display: flex;
@@ -286,7 +289,7 @@ const CSS = `
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 8px;
     color: ${C.gray400};
     cursor: pointer;
@@ -304,7 +307,7 @@ const CSS = `
   }
   .dvd-nav-item.is-active .dvd-nav-item-label  { font-weight: 500; }
   .dvd-sb-footer {
-    padding: 16px 20px;
+    padding: 16px 24px;
     border-top: 1px solid rgba(255,255,255,0.08);
   }
 
@@ -326,9 +329,9 @@ const CSS = `
     height: 28px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     padding: 0 10px 0 4px;
-    border-radius: 14px;
+    border-radius: 24px;
     border: 1px solid ${C.gray200};
     background: ${C.bg};
     flex-shrink: 0;
@@ -380,7 +383,7 @@ const CSS = `
     font-family: 'Geist', system-ui, sans-serif;
   }
   .dvd-page-subtitle {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
     font-weight: 400;
     color: ${C.textSecondary};
@@ -391,7 +394,8 @@ const CSS = `
   .dvd-search {
     display: flex;
     align-items: center;
-    gap: 6px;
+    color: ${C.textTertiary};
+    gap: 8px;
     height: 36px;
     padding: 0 12px;
     border: 1px solid ${C.gray200};
@@ -468,7 +472,7 @@ const CSS = `
   .dvd-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     padding: 0 12px;
     height: 36px;
     border-radius: 8px;
@@ -496,10 +500,11 @@ const CSS = `
   .dvd-kpi-row { display: flex; gap: 16px; }
   .dvd-kpi-card {
     flex: 1;
-    padding: 20px;
+    padding: 24px;
     border-radius: 8px;
     border: ${PANEL_BORDER};
     background: ${C.bg};
+    box-shadow: ${SHADOW_SM};
   }
   .dvd-kpi-label {
     font-size: 14px;
@@ -509,9 +514,9 @@ const CSS = `
     font-family: 'Geist', system-ui, sans-serif;
     margin-bottom: 8px;
   }
-  /* heading-3xl medium: 28px / 32px / 500 */
+  /* heading-2xl medium: 20px / 28px / 500 */
   .dvd-kpi-value {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 28px;
     font-weight: 500;
     color: ${C.textPrimary};
@@ -551,6 +556,7 @@ const CSS = `
     border-radius: 8px;
     border: ${PANEL_BORDER};
     background: ${C.bg};
+    box-shadow: ${SHADOW_SM};
     overflow: hidden;
   }
   /* body-md medium: 14px / 20px / 500 — section label, not page heading */
@@ -562,7 +568,7 @@ const CSS = `
     font-family: 'Geist', system-ui, sans-serif;
   }
   .dvd-panel-head {
-    padding: 20px;
+    padding: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -584,12 +590,12 @@ const CSS = `
     padding: 0;
   }
   .dvd-dots-btn:hover { background: ${C.gray100}; color: ${C.textPrimary}; }
-  .dvd-panel-body   { padding: 20px; }
+  .dvd-panel-body   { padding: 24px; }
   .dvd-panel-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 12px 24px;
     border-top: 1px solid ${C.gray200};
   }
 
@@ -651,7 +657,7 @@ const CSS = `
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .dvd-job-id {
     font-family: monospace;
@@ -674,10 +680,10 @@ const CSS = `
     background: ${C.gray200};
     overflow: hidden;
   }
-  /* Fill: rounded ends (radius 3px), color set inline per state */
+  /* Fill: rounded ends (radius-sm 4px), color set inline per state */
   .dvd-bar-fill {
     height: 100%;
-    border-radius: 3px;
+    border-radius: 4px;
   }
 
   /* ── Throughput chart card ───────────────────────────────────────────────── */
@@ -685,7 +691,8 @@ const CSS = `
     border-radius: 8px;
     border: ${PANEL_BORDER};
     background: ${C.bg};
-    padding: 20px;
+    box-shadow: ${SHADOW_SM};
+    padding: 24px;
     min-height: 280px;
   }
   .dvd-throughput-head {
@@ -699,11 +706,11 @@ const CSS = `
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 6px;
+    margin-top: 8px;
   }
-  /* heading-3xl medium: 28px / 32px / 500 */
+  /* heading-2xl medium: 20px / 28px / 500 */
   .dvd-throughput-value {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 28px;
     font-weight: 500;
     color: ${C.textPrimary};
@@ -725,7 +732,7 @@ const CSS = `
   /* Custom tooltip */
   .dvd-chart-tooltip {
     background: ${C.textPrimary};
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 8px 12px;
     min-width: 140px;
   }
@@ -747,7 +754,7 @@ const CSS = `
   /* ── Bar chart ───────────────────────────────────────────────────────────── */
   .dvd-chart {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     height: 140px;
     margin-top: 16px;
     align-items: stretch;
@@ -785,7 +792,7 @@ const CSS = `
   }
   .dvd-bar-fill-v {
     width: 100%;
-    border-radius: 3px 3px 0 0;
+    border-radius: 4px 4px 0 0;
     transition: opacity 0.12s;
   }
   .dvd-bar-col:hover .dvd-bar-fill-v { opacity: 0.75; }
@@ -795,7 +802,7 @@ const CSS = `
     font-weight: 400;
     color: ${C.textTertiary};
     font-family: 'Geist', system-ui, sans-serif;
-    margin-top: 5px;
+    margin-top: 4px;
     flex-shrink: 0;
   }
 
@@ -814,14 +821,14 @@ const CSS = `
   .dvd.is-dark .dvd-user-email  { color: ${D.textSecondary}; }
   .dvd.is-dark .dvd-page-title  { color: ${D.textPrimary}; }
   .dvd.is-dark .dvd-page-subtitle { color: ${D.textSecondary}; }
-  .dvd.is-dark .dvd-kpi-card    { background: ${D.bg}; border-color: ${D.border}; }
+  .dvd.is-dark .dvd-kpi-card    { background: ${D.bg}; border-color: ${D.border}; box-shadow: none; }
   .dvd.is-dark .dvd-kpi-label   { color: ${D.textSecondary}; }
   .dvd.is-dark .dvd-kpi-value   { color: ${D.textPrimary}; }
   .dvd.is-dark .dvd-kpi-sub     { color: ${D.textTertiary}; }
-  .dvd.is-dark .dvd-panel       { background: ${D.bg}; border-color: ${D.border}; }
+  .dvd.is-dark .dvd-panel       { background: ${D.bg}; border-color: ${D.border}; box-shadow: none; }
   .dvd.is-dark .dvd-panel-title { color: ${D.textPrimary}; }
   .dvd.is-dark .dvd-panel-footer { border-top-color: ${D.border}; }
-  .dvd.is-dark .dvd-throughput-card { background: ${D.bg}; border-color: ${D.border}; }
+  .dvd.is-dark .dvd-throughput-card { background: ${D.bg}; border-color: ${D.border}; box-shadow: none; }
   .dvd.is-dark .dvd-throughput-value { color: ${D.textPrimary}; }
   .dvd.is-dark .dvd-th          { color: ${D.textSecondary}; border-bottom-color: ${D.border}; }
   .dvd.is-dark .dvd-td          { color: ${D.textPrimary}; border-bottom-color: rgba(255,255,255,0.05); }
@@ -855,7 +862,7 @@ function DotsBtn() {
 
 function PanelHeader({ title }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
       <div className="dvd-panel-title">{title}</div>
       <DotsBtn />
     </div>
@@ -890,7 +897,7 @@ const POPOVER_LABEL_STYLE = {
 };
 
 const THEME_SEG_STYLES = {
-  root:      { background: C.gray100, border: 'none', borderRadius: 6, padding: 2 },
+  root:      { background: C.gray100, border: 'none', borderRadius: 8, padding: 2 },
   indicator: { background: C.primary, borderRadius: 4, boxShadow: 'none' },
   label:     { fontFamily: 'Geist, system-ui, sans-serif', fontSize: '12px', fontWeight: 400, color: C.textSecondary },
 };
@@ -980,7 +987,7 @@ function Sidebar({ colorScheme, setColorScheme, darkMode }) {
                   ]}
                   size="xs"
                   styles={{
-                    input:  { fontFamily: 'Geist, system-ui, sans-serif', fontSize: 12, borderColor: C.gray200, borderRadius: 6 },
+                    input:  { fontFamily: 'Geist, system-ui, sans-serif', fontSize: 12, borderColor: C.gray200, borderRadius: 8 },
                     option: { fontFamily: 'Geist, system-ui, sans-serif', fontSize: 12 },
                   }}
                 />
@@ -1001,7 +1008,7 @@ function TopBar({ onToggleDark }) {
   return (
     <header className="dvd-topbar">
       <div className="dvd-search">
-        <IconSearch size={16} style={{ color: C.textTertiary, flexShrink: 0 }} />
+        <IconSearch size={16} style={{ color: 'currentColor', flexShrink: 0 }} />
         <input placeholder="Search…" />
       </div>
 
@@ -1094,7 +1101,7 @@ function ThroughputChart() {
           withItemsBorders={false}
           styles={{
             root:      { background: 'transparent', border: 'none', padding: 0, gap: 2 },
-            indicator: { background: accent.hex, borderRadius: 6, boxShadow: 'none' },
+            indicator: { background: accent.hex, borderRadius: 8, boxShadow: 'none' },
             label:     {
               fontFamily: 'Geist, system-ui, sans-serif',
               fontSize: '12px',
