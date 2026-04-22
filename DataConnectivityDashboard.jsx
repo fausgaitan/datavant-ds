@@ -1254,7 +1254,7 @@ function MatchRateDistributionCard() {
   // SVG donut geometry
   const r = 56, strokeW = 18, vCx = 80, vCy = 80;
   const circ = 2 * Math.PI * r;
-  const gap  = 4;
+  const gap  = 18;
   const effectiveArc = circ - MATCH_DIST_SEGMENTS.length * gap;
 
   let cumStart = 0;
@@ -1285,7 +1285,7 @@ function MatchRateDistributionCard() {
                 strokeWidth={strokeW}
                 strokeDasharray={`${arc.arcLen} ${circ}`}
                 strokeDashoffset={-arc.start}
-                strokeLinecap="butt"
+                strokeLinecap="round"
                 style={{ transform: 'rotate(-90deg)', transformOrigin: `${vCx}px ${vCy}px` }}
               />
             ))}
