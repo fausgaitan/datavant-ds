@@ -1319,13 +1319,12 @@ function MatchRateDistributionCard() {
               }}>
                 94.1%
               </div>
-              <div style={{
-                fontSize: 12, lineHeight: '16px', fontWeight: 400,
-                color: C.errorText, fontFamily: 'Geist, system-ui, sans-serif',
-                marginTop: 4,
-              }}>
+              <span
+                className="dvd-kpi-badge"
+                style={{ background: C.errorBg, color: C.errorText, marginTop: 4 }}
+              >
                 ↓ -1.2% from prev. sync
-              </div>
+              </span>
             </div>
 
             {/* Legend rows */}
