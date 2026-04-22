@@ -135,6 +135,13 @@ const MATCH_STATS = [
   { label: 'Last sync',            value: '2h 14m', sub: 'ago — 04:47 UTC',         delta: 'neutral'  },
 ];
 
+const MATCH_DIST_SEGMENTS = [
+  { label: 'High Match', sub: '>95%',    count: 98 },
+  { label: 'Med Match',  sub: '90–95%',  count: 31 },
+  { label: 'Low Match',  sub: '<90%',    count: 13 },
+];
+const MATCH_DIST_TOTAL = 142;
+
 const NAV_GROUPS = [
   {
     section: 'Workspace',
@@ -1204,6 +1211,134 @@ function SourceTable() {
   );
 }
 
+// ─── Match Rate Distribution card ────────────────────────────────────────────
+
+function MatchRateDistributionCard() {
+  const { darkMode, rgb } = useContext(ThemeCtx);
+  const textPrimary   = darkMode ? D.textPrimary   : C.textPrimary;
+  const textSecondary = darkMode ? D.textSecondary : C.textSecondary;
+  const textTertiary  = darkMode ? D.textTertiary  : C.textTertiary;
+  const trackColor    = darkMode ? D.border        : C.gray200;
+  const connectorColor = darkMode ? D.border       : C.gray300;
+
+  const colors = [
+    `rgba(${rgb},1.0)`,
+    `rgba(${rgb},0.55)`,
+    `rgba(${rgb},0.22)`,
+  ];
+
+  // SVG donut geometry
+  const r = 56, strokeW = 18, vCx = 80, vCy = 80;
+  const circ = 2 * Math.PI * r;
+  const gap  = 5;
+  const effectiveArc = circ - MATCH_DIST_SEGMENTS.length * gap;
+
+  let cumStart = 0;
+  const arcs = MATCH_DIST_SEGMENTS.map((seg, i) => {
+    const arcLen = effectiveArc * (seg.count / MATCH_DIST_TOTAL);
+    const result = { ...seg, arcLen, start: cumStart, color: colors[i] };
+    cumStart += arcLen + gap;
+    return result;
+  });
+
+  return (
+    <div className="dvd-panel">
+      <div className="dvd-panel-body">
+        <PanelHeader title="Match Rate Distribution (Datasets)" />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, alignItems: 'center' }}>
+
+          {/* Left: donut SVG */}
+          <svg viewBox="0 0 160 160" width="100%" style={{ maxWidth: 160, margin: '0 auto', display: 'block' }}>
+            {/* Background track ring */}
+            <circle cx={vCx} cy={vCy} r={r} fill="none" stroke={trackColor} strokeWidth={strokeW} />
+            {/* Colored segments */}
+            {arcs.map((arc) => (
+              <circle
+                key={arc.label}
+                cx={vCx} cy={vCy} r={r}
+                fill="none"
+                stroke={arc.color}
+                strokeWidth={strokeW}
+                strokeDasharray={`${arc.arcLen} ${circ}`}
+                strokeDashoffset={-arc.start}
+                strokeLinecap="butt"
+                style={{ transform: 'rotate(-90deg)', transformOrigin: `${vCx}px ${vCy}px` }}
+              />
+            ))}
+            {/* Center: total count */}
+            <text
+              x={vCx} y={vCy - 7}
+              textAnchor="middle"
+              fill={textPrimary}
+              style={{ fontSize: 22, fontWeight: 500, fontFamily: 'Geist, system-ui, sans-serif' }}
+            >
+              {MATCH_DIST_TOTAL}
+            </text>
+            {/* Center: label */}
+            <text
+              x={vCx} y={vCy + 10}
+              textAnchor="middle"
+              fill={textTertiary}
+              style={{ fontSize: 9, fontFamily: 'Geist, system-ui, sans-serif' }}
+            >
+              Total Datasets
+            </text>
+          </svg>
+
+          {/* Right: metric + legend */}
+          <div>
+            {/* Main metric */}
+            <div style={{ marginBottom: 16 }}>
+              <div style={{
+                fontSize: 28, lineHeight: '32px', fontWeight: 500,
+                color: textPrimary, fontFamily: 'Geist, system-ui, sans-serif',
+              }}>
+                94.1%
+              </div>
+              <div style={{
+                fontSize: 12, lineHeight: '16px', fontWeight: 400,
+                color: C.errorText, fontFamily: 'Geist, system-ui, sans-serif',
+                marginTop: 4,
+              }}>
+                ↓ -1.2% from prev. sync
+              </div>
+            </div>
+
+            {/* Legend rows */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {arcs.map((arc) => (
+                <div key={arc.label} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <div style={{
+                    width: 8, height: 8, borderRadius: '50%',
+                    background: arc.color, flexShrink: 0,
+                  }} />
+                  <span style={{
+                    fontSize: 11, lineHeight: '14px', fontWeight: 400,
+                    color: textSecondary, fontFamily: 'Geist, system-ui, sans-serif',
+                    flex: 1, minWidth: 0,
+                  }}>
+                    {arc.label}
+                    <span style={{ color: textTertiary, marginLeft: 3, fontSize: 10 }}>{arc.sub}</span>
+                  </span>
+                  <div style={{ flex: '0 1 16px', minWidth: 8, borderTop: `1px dashed ${connectorColor}` }} />
+                  <span style={{
+                    fontSize: 11, lineHeight: '14px', fontWeight: 500,
+                    color: textPrimary, fontFamily: 'Geist, system-ui, sans-serif',
+                    textAlign: 'right', minWidth: 18, flexShrink: 0,
+                  }}>
+                    {arc.count}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Most active day chart ────────────────────────────────────────────────────
 
 function MostActiveDayChart() {
@@ -1352,6 +1487,7 @@ export default function DataConnectivityDashboard() {
                 <SourceTable />
               </div>
               <div className="dvd-col-right">
+                <MatchRateDistributionCard />
                 <MostActiveDayChart />
                 <TokenizationPanel />
                 <MatchAnalyticsPanel />
