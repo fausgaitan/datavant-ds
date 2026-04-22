@@ -117,6 +117,11 @@ const SOURCES = [
   { id: 'DS-02204-H', records: '560,772',   status: 'Syncing', match: '89.3%' },
   { id: 'DS-02387-I', records: '1,891,203', status: 'Active',  match: '95.5%' },
   { id: 'DS-02561-J', records: '304,119',   status: 'Risk',    match: '71.8%' },
+  { id: 'DS-02748-K', records: '672,540',   status: 'Active',  match: '96.2%' },
+  { id: 'DS-02915-L', records: '2,108,776', status: 'Syncing', match: '90.7%' },
+  { id: 'DS-03104-M', records: '489,331',   status: 'Idle',    match: '85.4%' },
+  { id: 'DS-03267-N', records: '134,092',   status: 'Risk',    match: '69.1%' },
+  { id: 'DS-03451-O', records: '3,445,201', status: 'Active',  match: '97.8%' },
 ];
 
 const JOBS = [
