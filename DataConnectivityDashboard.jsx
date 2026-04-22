@@ -6,7 +6,7 @@
  * Install: npm install @tabler/icons-react
  */
 
-import React, { useState, useMemo, createContext, useContext } from 'react';
+import React, { useState, useMemo, useEffect, createContext, useContext } from 'react';
 import { SimpleGrid, Paper, Text, SegmentedControl, Popover, Select } from '@mantine/core';
 import { AreaChart } from '@mantine/charts';
 import {
@@ -906,9 +906,13 @@ const THEME_SEG_STYLES = {
 
 function Sidebar({ colorScheme, setColorScheme, darkMode }) {
   const [popOpen, setPopOpen]           = useState(false);
-  const [sidebarTheme, setSidebarTheme] = useState('dark');
+  const [sidebarTheme, setSidebarTheme] = useState('light');
 
-  // global dark mode overrides the sidebar-specific toggle
+  // Global toggle overrides and resets sidebar theme
+  useEffect(() => {
+    setSidebarTheme(darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
   const effectiveTheme = darkMode ? 'dark' : sidebarTheme;
   const isLight = effectiveTheme === 'light';
   return (
