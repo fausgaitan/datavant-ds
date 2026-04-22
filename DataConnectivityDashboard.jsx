@@ -122,6 +122,8 @@ const SOURCES = [
   { id: 'DS-03104-M', records: '489,331',   status: 'Idle',    match: '85.4%' },
   { id: 'DS-03267-N', records: '134,092',   status: 'Risk',    match: '69.1%' },
   { id: 'DS-03451-O', records: '3,445,201', status: 'Active',  match: '97.8%' },
+  { id: 'DS-03618-P', records: '921,447',   status: 'Syncing', match: '92.3%' },
+  { id: 'DS-03802-Q', records: '255,680',   status: 'Risk',    match: '74.5%' },
 ];
 
 const JOBS = [
