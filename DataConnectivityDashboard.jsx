@@ -7,7 +7,7 @@
  */
 
 import React, { useState, useMemo, useEffect, createContext, useContext } from 'react';
-import { SimpleGrid, Paper, Text, SegmentedControl, Popover, Select } from '@mantine/core';
+import { SimpleGrid, Paper, Text, SegmentedControl, Popover, Select, Switch } from '@mantine/core';
 import { AreaChart } from '@mantine/charts';
 import {
   IconLayoutDashboard,
@@ -862,6 +862,11 @@ const CSS = `
   .dvd.is-dark .dvd-dots-btn:hover { background: rgba(255,255,255,0.08); color: ${D.textPrimary}; }
   .dvd.is-dark .dvd-chip        { background: rgba(255,255,255,0.08); color: ${D.textSecondary}; }
   .dvd.is-dark .dvd-content-row { background: ${D.pageBg}; }
+
+  /* ── Card shadows toggle ─────────────────────────────────────────────────── */
+  .dvd.no-shadows .dvd-kpi-card,
+  .dvd.no-shadows .dvd-panel,
+  .dvd.no-shadows .dvd-throughput-card { box-shadow: none; }
 `;
 
 // ─── Primitives ───────────────────────────────────────────────────────────────
@@ -916,7 +921,7 @@ const THEME_SEG_STYLES = {
   label:     { fontFamily: 'Geist, system-ui, sans-serif', fontSize: '12px', fontWeight: 400, color: C.textSecondary },
 };
 
-function Sidebar({ colorScheme, setColorScheme, darkMode }) {
+function Sidebar({ colorScheme, setColorScheme, darkMode, cardShadows, setCardShadows }) {
   const [popOpen, setPopOpen]           = useState(false);
   const [sidebarTheme, setSidebarTheme] = useState('light');
 
@@ -1009,6 +1014,18 @@ function Sidebar({ colorScheme, setColorScheme, darkMode }) {
                   styles={{
                     input:  { fontFamily: 'Geist, system-ui, sans-serif', fontSize: 12, borderColor: C.gray200, borderRadius: 8 },
                     option: { fontFamily: 'Geist, system-ui, sans-serif', fontSize: 12 },
+                  }}
+                />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={POPOVER_LABEL_STYLE}>Card shadows</div>
+                <Switch
+                  checked={cardShadows}
+                  onChange={(e) => setCardShadows(e.currentTarget.checked)}
+                  size="xs"
+                  styles={{
+                    track: { cursor: 'pointer' },
+                    label: { fontFamily: 'Geist, system-ui, sans-serif', fontSize: 12, cursor: 'pointer' },
                   }}
                 />
               </div>
@@ -1465,12 +1482,18 @@ function MatchAnalyticsPanel() {
 export default function DataConnectivityDashboard() {
   const [colorScheme, setColorScheme] = useState('blue');
   const [darkMode, setDarkMode]       = useState(false);
+  const [cardShadows, setCardShadows] = useState(true);
   const accent = ACCENT_MAP[colorScheme] ?? ACCENT_MAP.blue;
+  const rootClass = ['dvd', darkMode ? 'is-dark' : '', !cardShadows ? 'no-shadows' : ''].filter(Boolean).join(' ');
   return (
     <ThemeCtx.Provider value={{ ...accent, darkMode }}>
       <style>{CSS}</style>
-      <div className={`dvd${darkMode ? ' is-dark' : ''}`}>
-        <Sidebar colorScheme={colorScheme} setColorScheme={setColorScheme} darkMode={darkMode} />
+      <div className={rootClass}>
+        <Sidebar
+          colorScheme={colorScheme} setColorScheme={setColorScheme}
+          darkMode={darkMode}
+          cardShadows={cardShadows} setCardShadows={setCardShadows}
+        />
 
         <div className="dvd-main">
           <TopBar onToggleDark={() => setDarkMode(d => !d)} />
