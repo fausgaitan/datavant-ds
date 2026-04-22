@@ -561,6 +561,14 @@ const CSS = `
     font-family: 'Geist', system-ui, sans-serif;
     white-space: nowrap;
   }
+  /* Light mode badge variants */
+  .dvd-kpi-badge-up      { background: ${C.successBg}; color: ${C.successText}; }
+  .dvd-kpi-badge-down    { background: ${C.errorBg};   color: ${C.errorText};   }
+  .dvd-kpi-badge-neutral { background: ${C.neutralBg}; color: ${C.neutralText}; }
+  /* Dark mode badge variants */
+  .dvd.is-dark .dvd-kpi-badge-up      { background: rgba(13,166,92,0.18);    color: #65E59F; }
+  .dvd.is-dark .dvd-kpi-badge-down    { background: rgba(222,18,18,0.18);    color: #FF9595; }
+  .dvd.is-dark .dvd-kpi-badge-neutral { background: rgba(255,255,255,0.08);  color: #8C94A1; }
 
   /* ── Content row (zones ③ ④ ⑤) ───────────────────────────────────────────── */
   .dvd-content-row    { display: flex; gap: 24px; align-items: flex-start; }
@@ -1086,7 +1094,7 @@ function KpiRow() {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
               <div className="dvd-kpi-value">{value}</div>
-              <span className="dvd-kpi-badge" style={{ background: t.bg, color: t.text }}>{sub}</span>
+              <span className={`dvd-kpi-badge dvd-kpi-badge-${trend}`}>{sub}</span>
             </div>
             <div className="dvd-kpi-sub">{compare}</div>
           </div>
@@ -1127,9 +1135,7 @@ function ThroughputChart() {
           </div>
           <div className="dvd-throughput-live">
             <span className="dvd-throughput-value">{formatTokens(live)} tokens/s</span>
-            <span className="dvd-kpi-badge" style={{ background: C.successBg, color: C.successText }}>
-              +12% MoM
-            </span>
+            <span className="dvd-kpi-badge dvd-kpi-badge-up">+12% MoM</span>
           </div>
         </div>
         <SegmentedControl
@@ -1319,10 +1325,7 @@ function MatchRateDistributionCard() {
               }}>
                 94.1%
               </div>
-              <span
-                className="dvd-kpi-badge"
-                style={{ background: C.errorBg, color: C.errorText, marginTop: 4 }}
-              >
+              <span className="dvd-kpi-badge dvd-kpi-badge-down" style={{ marginTop: 4 }}>
                 ↓ -1.2% from prev. sync
               </span>
             </div>
@@ -1464,10 +1467,7 @@ function MatchAnalyticsPanel() {
               >
                 {value}
               </Text>
-              <span
-                className="dvd-kpi-badge"
-                style={{ background: TREND_STYLE[DELTA_TO_TREND[delta]].bg, color: TREND_STYLE[DELTA_TO_TREND[delta]].text }}
-              >
+              <span className={`dvd-kpi-badge dvd-kpi-badge-${DELTA_TO_TREND[delta]}`}>
                 {sub}
               </span>
             </Paper>
