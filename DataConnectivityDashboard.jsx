@@ -1235,7 +1235,7 @@ function MatchRateDistributionCard() {
   // SVG donut geometry
   const r = 56, strokeW = 18, vCx = 80, vCy = 80;
   const circ = 2 * Math.PI * r;
-  const gap  = 20;
+  const gap  = 4;
   const effectiveArc = circ - MATCH_DIST_SEGMENTS.length * gap;
 
   let cumStart = 0;
