@@ -82,10 +82,12 @@ const D = {
 
 const ACCENT_MAP = {
   blue:   { hex: '#2945F0', rgb: '41,69,240'   },
-  violet: { hex: '#932BC4', rgb: '147,43,196'  },  // violet.600
-  indigo: { hex: '#142592', rgb: '20,37,146'   },  // blue.800
-  teal:   { hex: '#0D9488', rgb: '13,148,136'  },
-  slate:  { hex: '#475569', rgb: '71,85,105'   },
+  violet:    { hex: '#932BC4', rgb: '147,43,196'  },  // violet.600
+  indigo:    { hex: '#142592', rgb: '20,37,146'   },  // blue.800
+  green:     { hex: '#008545', rgb: '0,133,69'    },  // green.600
+  lightBlue: { hex: '#007BC7', rgb: '0,123,199'   },  // lightBlue.600
+  teal:      { hex: '#0D9488', rgb: '13,148,136'  },
+  slate:     { hex: '#475569', rgb: '71,85,105'   },
 };
 
 const ThemeCtx = createContext({ ...ACCENT_MAP.blue, darkMode: false });
@@ -981,9 +983,11 @@ function Sidebar({ colorScheme, setColorScheme, darkMode }) {
                   value={colorScheme}
                   onChange={setColorScheme}
                   data={[
-                    { value: 'blue',   label: 'Blue'   },
-                    { value: 'violet', label: 'Violet' },
-                    { value: 'indigo', label: 'Indigo' },
+                    { value: 'blue',      label: 'Blue'       },
+                    { value: 'violet',    label: 'Violet'     },
+                    { value: 'indigo',    label: 'Indigo'     },
+                    { value: 'green',     label: 'Green'      },
+                    { value: 'lightBlue', label: 'Light Blue' },
                   ]}
                   size="xs"
                   styles={{
